@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: dx-diagnosis-pwa
+    env: node
+    plan: free
+    root: .
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false  # This will be set manually in Render dashboard
+    healthCheckPath: /api/health
